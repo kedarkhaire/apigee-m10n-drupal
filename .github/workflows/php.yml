@@ -100,6 +100,7 @@ jobs:
         composer require drupal/token:~1.0
         composer require wikimedia/composer-merge-plugin
         composer config --json extra.merge-plugin.require '["modules/contrib/apigee_m10n/composer.json"]'
+        composer config --json extra.patches."drupal/core" '{https://www.drupal.org/files/issues/2022-10-26/3316274-76.patch}'
         composer config platform.php ${{ matrix.php-version }}
         composer update --with-all-dependencies
         composer require --dev phpspec/prophecy-phpunit:^2
