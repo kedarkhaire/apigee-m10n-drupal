@@ -258,7 +258,7 @@ class AccessKernelTest extends MonetizationKernelTestBase {
 
     // Make sure only the admin account has access to all admin routes.
     foreach ($admin_routes as $route) {
-      static::assertTrue($route->access($this->administrator));
+      static::assertTrue((bool)$route->access($this->administrator));
       static::assertFalse($route->access($this->developer));
       static::assertFalse($route->access($this->anonymous));
     }
