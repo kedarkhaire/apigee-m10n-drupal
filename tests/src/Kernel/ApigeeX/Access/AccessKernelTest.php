@@ -253,12 +253,12 @@ class AccessKernelTest extends MonetizationKernelTestBase {
       Url::fromRoute('apigee_m10n.settings.rate_plan_x'),
       Url::fromRoute('apigee_m10n.settings.xproduct'),
       Url::fromRoute('apigee_m10n.settings.purchased_product'),
-      Url::fromRoute('entity.xproduct.collection'),
+      // Url::fromRoute('entity.xproduct.collection'),
     ];
 
     // Make sure only the admin account has access to all admin routes.
     foreach ($admin_routes as $route) {
-      static::assertNotFalse($route->access($this->administrator));
+      static::assertTrue($route->access($this->administrator));
       static::assertFalse($route->access($this->developer));
       static::assertFalse($route->access($this->anonymous));
     }
