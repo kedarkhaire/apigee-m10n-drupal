@@ -10,7 +10,7 @@
         "commerceguys/intl": "^2.0",
         "drupal/apigee_edge": "^3.0.0 || ^4.0.0",
         "drupal/core": "^10.3 || ^11.1",
-        "drupal/requirement": "dev-drupal11-prep",
+        "drupal/requirement": "dev-issue-007",
         "drupal/jquery_ui_dialog": "^2.0 || ^2.1",
         "apigee/apigee-client-php": "^3.0.7 || ^4.0.0"
     },
@@ -28,5 +28,11 @@
         "sort-packages": true
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "repositories": {
+        "forked-requirement": {
+            "type": "vcs",
+            "url": "https://github.com/kedarkhaire/requirement-drupal"
+        }
+    }
 }
