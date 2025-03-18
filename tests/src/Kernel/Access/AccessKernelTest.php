@@ -137,8 +137,8 @@ class AccessKernelTest extends MonetizationKernelTestBase {
     $this->assertProductBundleRoutes();
     $this->assertRatePlanRoutes();
     $this->assertPurchasedPlanRoutes();
-    // $this->assertBillingRoutes();
-    // $this->assertReportsRoute();
+    $this->assertBillingRoutes();
+    $this->assertReportsRoute();
   }
 
   /**
