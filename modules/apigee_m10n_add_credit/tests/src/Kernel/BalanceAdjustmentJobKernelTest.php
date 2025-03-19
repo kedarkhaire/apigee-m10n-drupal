@@ -328,7 +328,7 @@ class BalanceAdjustmentJobKernelTest extends MonetizationKernelTestBase {
     echo "Hi Test here ---- " . $emails[0]['body'];
     static::assertStringContainsString('There was an error applying a credit to an account.', $emails[0]['body']);
     $nl = PHP_EOL;
-    static::assertStringContainsString("Calculation discrepancy applying adjustment to developer{$nl}`{$this->developer->getEmail()}`.", $emails[0]['body']);
+    static::assertStringContainsString("Calculation discrepancy applying adjustment to developer `{$this->developer->getEmail()}`.", $emails[0]['body']);
     static::assertStringContainsString('Existing credit added (' . date('F') . '):  `$19.99`', $emails[0]['body']);
     static::assertStringContainsString('Amount Applied:                   `$19.99`.', $emails[0]['body']);
     static::assertStringContainsString('New Balance:                      `Error retrieving the new balance.`.', $emails[0]['body']);
