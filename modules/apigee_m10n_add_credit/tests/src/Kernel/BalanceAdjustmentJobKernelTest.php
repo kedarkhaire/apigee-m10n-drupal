@@ -325,7 +325,7 @@ class BalanceAdjustmentJobKernelTest extends MonetizationKernelTestBase {
     static::assertSame($this->site_mail, $emails[0]['from']);
     static::assertSame('balance_adjustment_error_report', $emails[0]['key']);
     static::assertSame('Developer account add credit error from example site', $emails[0]['subject']);
-    echo "Hi Test here ---- " . $emails[0]['body'];
+    // echo "Hi Test here ---- " . $emails[0]['body'];
     static::assertStringContainsString('There was an error applying a credit to an account.', $emails[0]['body']);
     static::assertStringContainsString("Calculation discrepancy applying adjustment to developer  \n`{$this->developer->getEmail()}`.", $emails[0]['body']);
     static::assertStringContainsString('Existing credit added (' . date('F') . '):  `$19.99`', $emails[0]['body']);
