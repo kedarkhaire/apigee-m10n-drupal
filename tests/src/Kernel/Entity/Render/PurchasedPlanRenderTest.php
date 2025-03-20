@@ -98,8 +98,6 @@ class PurchasedPlanRenderTest extends MonetizationKernelTestBase {
       ->setTimezone(new \DateTimeZone('America/Los_Angeles'))
       ->format('D, m/d/Y - H:i');
     static::assertNotEmpty($start_date);
-    echo "HI STrat Date --- ";
-    echo $start_date;
     $this->assertText($start_date, 'The start date appears in the rendered purchased plan.');
   }
 
