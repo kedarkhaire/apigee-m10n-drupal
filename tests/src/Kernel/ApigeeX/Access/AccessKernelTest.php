@@ -75,7 +75,7 @@ class AccessKernelTest extends MonetizationKernelTestBase {
   protected function setUp(): void {
     parent::setUp();
 
-    \Drupal\Core\DrupalKernel::bootEnvironment()
+    \Drupal\Core\DrupalKernel::bootEnvironment();
 
     $this->installEntitySchema('user');
     $this->installSchema('user', ['users_data']);
