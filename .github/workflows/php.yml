@@ -155,10 +155,10 @@ jobs:
       if: ${{ matrix.drupal-core != '10.3.x' || matrix.php-version != '8.2' }}
       run: |
         cd drupal
-        vendor/bin/phpunit -c core --color --group apigee_m10n --testsuite unit,kernel,functional,functional-javascript modules/contrib/apigee_m10n//tests/src/Kernel/Plugin/Field/FieldWidget/BaseWidgetKernelTest.php
-        vendor/bin/phpunit -c core --color --group apigee_m10n --testsuite unit,kernel,functional,functional-javascript modules/contrib/apigee_m10n//tests/src/Kernel/ApigeeX/Access/AccessKernelTest.php
-        vendor/bin/phpunit -c core --color --group apigee_m10n --testsuite unit,kernel,functional,functional-javascript modules/contrib/apigee_m10n//tests/src/Kernel/ApigeeX/Controller/ProductAdminListingTest.php
-        vendor/bin/phpunit -c core --color --group apigee_m10n --testsuite unit,kernel,functional,functional-javascript modules/contrib/apigee_m10n//tests/src/Kernel/ApigeeX/Plugin/Field/FieldFormatter/MonetizationDeveloperFormatterKernelTest.php
+        vendor/bin/phpunit -c core --color --group apigee_m10n --testsuite unit,kernel,functional,functional-javascript modules/contrib/apigee_m10n/tests/src/Kernel/Plugin/Field/FieldWidget/BaseWidgetKernelTest.php
+        vendor/bin/phpunit -c core --color --group apigee_m10n --testsuite unit,kernel,functional,functional-javascript modules/contrib/apigee_m10n/tests/src/Kernel/ApigeeX/Access/AccessKernelTest.php
+        vendor/bin/phpunit -c core --color --group apigee_m10n --testsuite unit,kernel,functional,functional-javascript modules/contrib/apigee_m10n/tests/src/Kernel/ApigeeX/Controller/ProductAdminListingTest.php
+        vendor/bin/phpunit -c core --color --group apigee_m10n --testsuite unit,kernel,functional,functional-javascript modules/contrib/apigee_m10n/tests/src/Kernel/ApigeeX/Plugin/Field/FieldFormatter/MonetizationDeveloperFormatterKernelTest.php
 
     # - name: "Run PHPUnit tests with Code Coverage"
     #   if: ${{ matrix.drupal-core == '10.3.x' && matrix.php-version == '8.2' }}
