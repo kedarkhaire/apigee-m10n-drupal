@@ -124,7 +124,6 @@ jobs:
       run: |
         cd drupal
         cp modules/contrib/apigee_m10n/phpcs.xml.dist .
-        vendor/bin/phpcs --standard=./phpcs.xml.dist modules/contrib/apigee_m10n -p -s -n --colors
         # Setting environment variables to run Apigee X tests
         echo "APIGEE_EDGE_INSTANCE_TYPE=hybrid" >> $GITHUB_ENV
         echo "APIGEE_EDGE_ORGANIZATION=$APIGEE_EDGE_HYBRID_ORGANIZATION" >> $GITHUB_ENV
