@@ -122,7 +122,7 @@ class AccessKernelTest extends MonetizationKernelTestBase {
     echo "Wrappers ----- \n";
     print_r($wrappers);
     echo "\n ----- Private file path ----- \n";
-    print_r(Settings::get('file_private_path'));
+    print_r(\Drupal\Core\Site\Settings::get('file_private_path'));
     $this->assertPermissionList();
     $this->assertAdminRoutes();
     $this->assertBuyApiRoutes();
