@@ -21,7 +21,6 @@ namespace Drupal\Tests\apigee_m10n\Kernel\ApigeeX\Access;
 
 use Drupal\Core\DrupalKernel;
 use Drupal\Core\DrupalKernelInterface;
-use Drupal\Core\Site\Settings;
 use Drupal\Core\Session\AnonymousUserSession;
 use Drupal\Core\Session\UserSession;
 use Drupal\Core\Url;
@@ -120,10 +119,6 @@ class AccessKernelTest extends MonetizationKernelTestBase {
    * Run all assertions in this test class.
    */
   public function testAll() {
-    echo "SAlt test ---- \n";
-    $wrappers = stream_get_wrappers();
-    error_log(print_r($wrappers, true));
-    debug(Settings::get('file_private_path'));
     $this->assertPermissionList();
     $this->assertAdminRoutes();
     $this->assertBuyApiRoutes();
