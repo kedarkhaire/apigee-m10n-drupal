@@ -113,17 +113,19 @@ class AccessKernelTest extends MonetizationKernelTestBase {
     $this->stack->reset();
     $this->xrate_plan = $this->createRatePlan($this->xproduct);
     $this->stack->reset();
+
+    
+    $wrappers = stream_get_wrappers();
+    echo "Wrappers ----- \n";
+    print_r($wrappers);
+    echo "\n ----- Private file path ----- \n";
+    print_r(\Drupal\Core\Site\Settings::get('file_private_path'));
   }
 
   /**
    * Run all assertions in this test class.
    */
   public function testAll() {
-    $wrappers = stream_get_wrappers();
-    echo "Wrappers ----- \n";
-    print_r($wrappers);
-    echo "\n ----- Private file path ----- \n";
-    print_r(\Drupal\Core\Site\Settings::get('file_private_path'));
     $this->assertPermissionList();
     $this->assertAdminRoutes();
     $this->assertBuyApiRoutes();
