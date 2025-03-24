@@ -75,8 +75,6 @@ class AccessKernelTest extends MonetizationKernelTestBase {
   protected function setUp(): void {
     parent::setUp();
 
-    \Drupal\Core\DrupalKernel::bootEnvironment();
-
     $this->installEntitySchema('user');
     $this->installSchema('user', ['users_data']);
     $this->installConfig([
@@ -113,13 +111,6 @@ class AccessKernelTest extends MonetizationKernelTestBase {
     $this->stack->reset();
     $this->xrate_plan = $this->createRatePlan($this->xproduct);
     $this->stack->reset();
-
-    
-    $wrappers = stream_get_wrappers();
-    echo "Wrappers ----- \n";
-    print_r($wrappers);
-    echo "\n ----- Private file path ----- \n";
-    print_r(\Drupal\Core\Site\Settings::get('file_private_path'));
   }
 
   /**
