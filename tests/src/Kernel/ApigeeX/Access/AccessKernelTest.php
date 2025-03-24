@@ -75,8 +75,6 @@ class AccessKernelTest extends MonetizationKernelTestBase {
   protected function setUp(): void {
     parent::setUp();
 
-    \Drupal\Core\DrupalKernel::bootEnvironment();
-
     $this->installEntitySchema('user');
     $this->installSchema('user', ['users_data']);
     $this->installConfig([
@@ -119,6 +117,10 @@ class AccessKernelTest extends MonetizationKernelTestBase {
    * Run all assertions in this test class.
    */
   public function testAll() {
+    echo "SAlt test ---- \n";
+    $wrappers = stream_get_wrappers();
+    error_log(print_r($wrappers, true));
+    // debug(Settings::get('file_private_path'));
     $this->assertPermissionList();
     $this->assertAdminRoutes();
     $this->assertBuyApiRoutes();
