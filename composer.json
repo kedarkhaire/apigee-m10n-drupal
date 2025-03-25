@@ -22,7 +22,8 @@
         "mglaman/drupal-check": "^1.5",
         "phpmd/phpmd": "^2.8.2",
         "phpmetrics/phpmetrics": "^2.5",
-        "phpstan/phpstan": "^1.12"
+        "phpstan/phpstan": "^1.12",
+        "phpunit/phpunit": "^10.5"
     },
     "config": {
         "sort-packages": true
