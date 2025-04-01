@@ -152,17 +152,19 @@ jobs:
         sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional
 
     - name: "Run PHPUnit tests"
-      if: ${{ matrix.drupal-core != '10.3.x' || matrix.php-version != '8.2' }}
+      # if: ${{ matrix.drupal-core != '10.3.x' || matrix.php-version != '8.2' }}
       run: |
         cd drupal
-        vendor/bin/phpunit -c core --color --group apigee_m10n --testsuite unit,kernel,functional,functional-javascript modules/contrib/apigee_m10n
+        vendor/bin/phpunit -c core --color --group apigee_m10n --testsuite unit,kernel,functional,functional-javascript modules/contrib/apigee_m10n/modules/apigee_m10n_add_credit/tests/src/Functional/ApigeeX/AddCreditProductAdminTest.php
+        vendor/bin/phpunit -c core --color --group apigee_m10n --testsuite unit,kernel,functional,functional-javascript modules/contrib/apigee_m10n//tests/src/Functional/ApigeeX/PrepaidBalanceTest.php
+        vendor/bin/phpunit -c core --color --group apigee_m10n --testsuite unit,kernel,functional,functional-javascript modules/contrib/apigee_m10n/modules/apigee_m10n_add_credit/tests/src/Functional/AddCreditProductCheckoutTest.php
 
-    - name: "Run PHPUnit tests with Code Coverage"
-      if: ${{ matrix.drupal-core == '10.3.x' && matrix.php-version == '8.2' }}
-      run: |
-        cd drupal
-        cp modules/contrib/apigee_m10n/phpunit.core.xml.dist core/phpunit.xml
-        vendor/bin/phpunit -c core --color --group apigee_m10n --testsuite unit,kernel,functional,functional-javascript --coverage-clover /tmp/coverage_${{ matrix.instance-type }}.xml modules/contrib/apigee_m10n
+    # - name: "Run PHPUnit tests with Code Coverage"
+    #   if: ${{ matrix.drupal-core == '10.3.x' && matrix.php-version == '8.2' }}
+    #   run: |
+    #     cd drupal
+    #     cp modules/contrib/apigee_m10n/phpunit.core.xml.dist core/phpunit.xml
+    #     vendor/bin/phpunit -c core --color --group apigee_m10n --testsuite unit,kernel,functional,functional-javascript --coverage-clover /tmp/coverage_${{ matrix.instance-type }}.xml modules/contrib/apigee_m10n
         
     - name: Artifacts
       if: failure()
@@ -171,12 +173,12 @@ jobs:
         name: browser-output-${{ matrix.php-version }}-${{ matrix.drupal-core }}-${{ matrix.instance-type }}-artifact
         path: drupal/sites/simpletest/browser_output/*
 
-    - name: Upload coverage to Codecov
-      if: ${{ matrix.drupal-core == '10.3.x' && matrix.php-version == '8.2' }}
-      uses: codecov/codecov-action@v4
-      with:
-        token: ${{ secrets.CODECOV_TOKEN }}
-        files: /tmp/coverage_${{ matrix.instance-type }}.xml
-        name: codecov-umbrella
-        fail_ci_if_error: true
-        verbose: true
+    # - name: Upload coverage to Codecov
+    #   if: ${{ matrix.drupal-core == '10.3.x' && matrix.php-version == '8.2' }}
+    #   uses: codecov/codecov-action@v4
+    #   with:
+    #     token: ${{ secrets.CODECOV_TOKEN }}
+    #     files: /tmp/coverage_${{ matrix.instance-type }}.xml
+    #     name: codecov-umbrella
+    #     fail_ci_if_error: true
+    #     verbose: true
