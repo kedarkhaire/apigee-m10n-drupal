@@ -101,8 +101,7 @@ class AddCreditProductAdminTest extends AddCreditFunctionalTestBase {
     $this->submitForm([
       'title[0][value]' => $title,
       'variations[form][0][sku][0][value]' => 'SKU-ADD-CREDIT-10',
-      'variations[form][0][price][0][number]' => '10.00',
-      'variations[entity][apigee_price_range][0][price_range][fields][minimum]' => '10.00'
+      'variations[form][0][price][0][number]' => '10.00'
     ], 'Save');
     $this->assertCssElementContains('h1.page-title', $title);
     $this->assertCssElementContains('div.messages--status', "The product {$title} has been successfully saved.");
